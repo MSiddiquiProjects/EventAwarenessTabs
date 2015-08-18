@@ -3,14 +3,18 @@
  */
 angular.module('starter.controllers')
 
-    .controller('modalctrl', function($scope, $ionicModal, $document){
+    .controller('modalctrl', function($scope, $ionicModal){
 
         //TODO: locating the correct button.
-        //var searchbtn = angular.element($document);
+        var searchbtn;
 
         $scope.whichTabSelected = function(tab){
 
             if(tab == 'home'){
+                searchbtn = angular.element(document.querySelectorAll('#buttonId'));
+                if(searchbtn != undefined)
+                    searchbtn.removeClass('hide');
+
                 $ionicModal.fromTemplateUrl('templates/Modals/myModal.html', {
                     scope: $scope
                 }).then(function(modal) {
@@ -19,6 +23,10 @@ angular.module('starter.controllers')
             }
 
             else if(tab == 'calendar'){
+
+                if(searchbtn != undefined)
+                    searchbtn.removeClass('hide');
+
                 $ionicModal.fromTemplateUrl('templates/Modals/calendarModal.html', {
                     scope: $scope
                 }).then(function(modal) {
@@ -27,8 +35,7 @@ angular.module('starter.controllers')
             }
 
             else if(tab == 'settings'){
-                //searchbtn.addClass('hide');
-                //console.log(searchbtn);
+                searchbtn.addClass('hide');
             }
 
         }
