@@ -35,38 +35,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     .state('tab', {
     url: '/tab',
     abstract: true,
-    templateUrl: 'templates/Tab Pages/tabs.html'
-  })
+    templateUrl: 'templates/TabPages/tabs.html'
+  });
 
   // Each tab has its own nav history stack:
-
-  .state('tab.home', {
-    url: '/home',
-    views: {
-      'tab-home': {
-        templateUrl: 'templates/Tab Pages/tab-home.html',
-        controller: 'HomeCtrl'
-      }
-    }
-  })
-  .state('tab.calendar', {
-    url: '/calendar',
-    views: {
-      'tab-calendar': {
-        templateUrl: 'templates/Tab Pages/tab-calendar.html',
-        controller: 'CalendarCtrl'
-      }
-    }
-  })
-  .state('tab.settings', {
-    url: '/settings',
-    views: {
-      'tab-settings': {
-        templateUrl: 'templates/Tab Pages/tab-settings.html',
-        controller: 'SettingsCtrl'
-      }
-    }
-  });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/home');
